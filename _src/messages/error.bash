@@ -1,12 +1,8 @@
 #!/bin/bash
 
 #----------------
-# Name          : 
-# Description   : 
-# Author        : E Fournier
-# Dependencies  : 
-# Arguments     : 
-# Example Usage : 
+# Name          : error.bash
+# Description   : Prints message and exits on runtime errors
 #----------------
 
 on_dir_not_found() {

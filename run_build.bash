@@ -2,10 +2,10 @@
 
 #----------------
 # Name          : run_build.bash
-# Description   : Runs the build process for count, outputting a compiled binary to the build directory.
+# Description   : Runs the build process for count, outputting a compiled binary to the build directory
 # Author        : E Fournier
 # Dependencies  : shc
-# Example Usage : bash run_build.bash
+# Example Usage : ./run_build.bash
 #----------------
 
 get_output_dir() {

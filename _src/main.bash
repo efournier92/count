@@ -9,8 +9,8 @@
 # Example Usage : count -d ~/Desktop
 #----------------
 
-source ./args/args.bash
-source ./utils/print.bash
+source './args/args.bash'
+source './utils/print.bash'
 
 main() {
   print_counts `read_args "$@"`

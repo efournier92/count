@@ -1,12 +1,8 @@
 #!/bin/bash
 
 #----------------
-# Name          : 
-# Description   : 
-# Author        : E Fournier
-# Dependencies  : 
-# Arguments     : 
-# Example Usage : 
+# Name          : flat.bash
+# Description   : Count files and directories without recursion
 #----------------
 
 count_dirs_flat() {

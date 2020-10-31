@@ -1,12 +1,8 @@
 #!/bin/bash
 
 #----------------
-# Name          : 
-# Description   : 
-# Author        : E Fournier
-# Dependencies  : 
-# Arguments     : 
-# Example Usage : 
+# Name          : deep.bash
+# Description   : Counts files and directories recursively
 #----------------
 
 count_dirs_deep() {

@@ -1,17 +1,13 @@
 #!/bin/bash
 
 #----------------
-# Name          : 
-# Description   : 
-# Author        : E Fournier
-# Dependencies  : 
-# Arguments     : 
-# Example Usage : 
+# Name          : print.bash
+# Description   : Prints count results
 #----------------
 
-source messages/error.bash
-source modes/flat.bash
-source modes/deep.bash
+source 'messages/error.bash'
+source 'modes/flat.bash'
+source 'modes/deep.bash'
 
 print_count_flat() {
   local dir="$1"
@@ -37,10 +33,15 @@ EOF
 
 print_counts() {
   local dir="$1"
+  local flat_only="$2"
 
   [[ ! -d "$dir" ]] && on_dir_not_found "$dir"
   
-  print_count_flat "$dir"
-  print_count_deep "$dir"
+  if [[ "$flat_only" == "true" ]]; then
+    print_count_flat "$dir"
+  else
+    print_count_flat "$dir"
+    print_count_deep "$dir"
+  fi
 }
 

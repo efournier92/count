@@ -2,7 +2,7 @@
 
 #----------------
 # Name          : run_tests.bash
-# Description   : Runs project test suite
+# Description   : Runs test suite for the project
 # Author        : E Fournier
 # Dependencies  : shunit2
 # Example Usage : ./run_tests.bash
@@ -20,7 +20,15 @@ TEST: $filename
 EOF
 }
 
-run_tests_flat() {
+run_tests_args() {
+  local file="_tests/args/args_tests.bash"
+
+  print_header "$file"
+
+  eval "./$file" 
+}
+
+run_tests_mode_flat() {
   local file="_tests/modes/flat_tests.bash"
 
   print_header "$file"
@@ -28,7 +36,7 @@ run_tests_flat() {
   eval "./$file" 
 }
 
-run_tests_deep() {
+run_tests_mode_deep() {
   local file="_tests/modes/deep_tests.bash"
   
   print_header "$file"
@@ -37,9 +45,20 @@ run_tests_deep() {
 }
 
 run_tests() {
-  run_tests_flat
-  run_tests_deep
+  test_file="$1"
+  
+  if [[ "$test_file" == "args" ]]; then
+    run_tests_args
+  elif [[ "$test_file" == "mode_flat" ]]; then
+    run_tests_mode_flat
+  elif [[ "$test_file" == "mode_deep" ]]; then
+    run_tests_mode_deep
+  else
+    run_tests_args
+    run_tests_mode_flat
+    run_tests_mode_deep
+  fi
 }
 
-run_tests
+run_tests "$@"
 

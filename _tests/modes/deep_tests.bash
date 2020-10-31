@@ -1,16 +1,25 @@
 #!/bin/bash
 
 #----------------
-# Name          : count_tests.bash
-# Description   : Unit test for `count` functions
-# Author        : E Fournier
+# Name          : deep_tests.bash
+# Description   : Unit test for deep-count mode
 #----------------
 
-source ./_src/modes/deep.bash
+source './_src/modes/deep.bash'
 
-test_count_all_dirs_deep() {
-  local message="It should "
-  local dir="./_tests/_data/deep_with_dirs_and_nested_files"
+test_count_dirs_deep_with_empty_dir() {
+  local message="It should count 0 dirs"
+  local dir="./_tests/_data/empty"
+  local expected_result="0"
+  
+  local result=`count_dirs_deep "$dir"`
+  
+  assertEquals "$message" "$expected_result" "$result"
+}
+
+test_count_dirs_deep_with_empty_nested_dirs() {
+  local message="It should count 3 directories"
+  local dir="./_tests/_data/empty_with_nested_dirs"
   local expected_result="3"
   
   local result=`count_dirs_deep "$dir"`
@@ -18,9 +27,9 @@ test_count_all_dirs_deep() {
   assertEquals "$message" "$expected_result" "$result"
 }
 
-test_count_all_dirs_deep_without_nested_dirs() {
-  local message="It should "
-  local dir="./_tests/_data/deep_with_nested_dirs"
+test_count_dirs_deep_with_deeply_nested_dirs() {
+  local message="It should count 9 directories"
+  local dir="./_tests/_data/files_with_deeply_nested_empty_dirs"
   local expected_result="9"
   
   local result=`count_dirs_deep "$dir"`
@@ -29,8 +38,8 @@ test_count_all_dirs_deep_without_nested_dirs() {
 }
 
 test_count_files_deep_with_no_dirs() {
-  local message="It should "
-  local dir="./_tests/_data/flat_no_dirs"
+  local message="It should count 27 files"
+  local dir="./_tests/_data/files_with_no_dirs"
   local expected_result="27"
   
   local result=`count_files_deep "$dir"`
@@ -39,8 +48,8 @@ test_count_files_deep_with_no_dirs() {
 }
 
 test_count_files_deep_with_nested_files() {
-  local message="It should "
-  local dir="./_tests/_data/deep_with_dirs_and_nested_files"
+  local message="It should count 36 files"
+  local dir="./_tests/_data/nested_files"
   local expected_result="36"
   
   local result=`count_files_deep "$dir"`
@@ -49,8 +58,8 @@ test_count_files_deep_with_nested_files() {
 }
 
 test_count_files_deep_with_nested_dot_files() {
-  local message="It should "
-  local dir="./_tests/_data/deep_with_dirs_and_nested_files_and_dot_files"
+  local message="It should count 39 files"
+  local dir="./_tests/_data/nested_dot_files"
   local expected_result="39"
   
   local result=`count_files_deep "$dir"`
