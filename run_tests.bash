@@ -5,7 +5,7 @@
 # Description   : Runs project test suite
 # Author        : E Fournier
 # Dependencies  : shunit2
-# Example Usage : bash run_tests.bash
+# Example Usage : ./run_tests.bash
 #----------------
 
 print_header() {
