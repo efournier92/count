@@ -9,11 +9,17 @@
 # Example Usage : count -d ~/Desktop
 #----------------
 
-source './args/args.bash'
+source './args/dir_args.bash'
+source './args/flat_only_args.bash'
 source './utils/print.bash'
 
 main() {
-  print_counts `read_args "$@"`
+  local is_flat_only=`read_flat_only_args "$@"`
+
+  [[ "$is_flat_only" == "true" ]] \
+    && FLAT_ONLY="true"
+
+  print_counts `read_dir_args "$@"`
 }
 
 main "$@"

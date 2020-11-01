@@ -102,7 +102,8 @@ concatenate_files() {
 
   cat \
     '_src/messages/error.bash' \
-    '_src/args/args.bash' \
+    '_src/args/dir_args.bash' \
+    '_src/args/flat_only_args.bash' \
     '_src/modes/flat.bash' \
     '_src/modes/deep.bash' \
     '_src/utils/print.bash' \

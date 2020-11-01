@@ -6,7 +6,7 @@
 # Author        : E Fournier
 #----------------
 
-read_args() {
+read_dir_args() {
   while [ "$1" != "" ]; do
 
     case $1 in
@@ -15,17 +15,12 @@ read_args() {
         local dir="$1"
         ;;
 
-      -f | --flat )
-        local flat_only="true"
-        ;;
-
     esac
     shift
   done
 
-  [[ -z "$dir" ]] && local dir=$(pwd)
-  [[ -z "$flat_only" ]] && local flat_only="false"
+  [[ -z "$dir" ]] && local dir="$(pwd)"
 
-  echo "$dir" "$flat_only"
+  echo "$dir"
 }
 
