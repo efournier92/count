@@ -7,9 +7,9 @@
 #----------------
 
 read_dir_args() {
-  while [ "$1" != "" ]; do
-
+  while [[ "$1" != "" ]]; do
     case $1 in
+
       -d | --dir | --directory )
         shift
         local dir="$1"
@@ -18,7 +18,7 @@ read_dir_args() {
     esac
     shift
   done
-
+  
   [[ -z "$dir" ]] && local dir="$(pwd)"
 
   echo "$dir"

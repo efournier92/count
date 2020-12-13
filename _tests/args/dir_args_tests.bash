@@ -5,7 +5,7 @@
 # Description   : Unit tests for passing arguments to count
 #----------------
 
-source './_src/args/dir_args.bash'
+source "./_src/args/dir_args.bash"
 
 test_read_args_with_no_args() {
   local message="It should return the current directory"

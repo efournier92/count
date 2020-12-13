@@ -5,16 +5,16 @@
 # Description   : Prints count results
 #----------------
 
-source 'messages/error.bash'
-source 'modes/flat.bash'
-source 'modes/deep.bash'
+source "./_src/messages/error.bash"
+source "./_src/modes/flat.bash"
+source "./_src/modes/deep.bash"
 
 print_header() {
   local dir="$1"
 
   cat << EOF
 
-$dir
+COUNT: $dir
 EOF
 }
 

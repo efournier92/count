@@ -15,53 +15,53 @@ print_header() {
 
 cat << EOF
 ____
-TEST: $filename
+TEST $filename
 
 EOF
 }
 
-run_tests_dir_args() {
-  local file="_tests/args/dir_args_tests.bash"
+run_test() {
+  local file="$1"
 
   print_header "$file"
 
-  eval "./$file" 
+  eval "$file"
+}
+
+run_tests_dir_args() {
+  local file="./_tests/args/dir_args_tests.bash"
+  
+  run_test "$file"
 }
 
 run_tests_flat_only_args() {
-  local file="_tests/args/flat_only_args_tests.bash"
+  local file="./_tests/args/flat_only_args_tests.bash"
 
-  print_header "$file"
-
-  eval "./$file" 
+  run_test "$file"
 }
 
 run_tests_mode_flat() {
-  local file="_tests/modes/flat_tests.bash"
+  local file="./_tests/modes/flat_tests.bash"
 
-  print_header "$file"
-
-  eval "./$file" 
+  run_test "$file"
 }
 
 run_tests_mode_deep() {
-  local file="_tests/modes/deep_tests.bash"
+  local file="./_tests/modes/deep_tests.bash"
   
-  print_header "$file"
-
-  eval "./$file" 
+  run_test "$file"
 }
 
 run_tests() {
-  test_file="$1"
+  local file_to_test="$1"
   
-  if [[ "$test_file" == "dir_args" ]]; then
+  if [[ "$file_to_test" == "dir_args" ]]; then
     run_tests_dir_args
-  elif [[ "$test_file" == "flat_only_args" ]]; then
+  elif [[ "$file_to_test" == "flat_only_args" ]]; then
     run_tests_flat_only_args
-  elif [[ "$test_file" == "mode_flat" ]]; then
+  elif [[ "$file_to_test" == "mode_flat" ]]; then
     run_tests_mode_flat
-  elif [[ "$test_file" == "mode_deep" ]]; then
+  elif [[ "$file_to_test" == "mode_deep" ]]; then
     run_tests_mode_deep
   else
     run_tests_dir_args

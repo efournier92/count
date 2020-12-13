@@ -101,13 +101,15 @@ concatenate_files() {
   local output_name="$1"
 
   cat \
-    '_src/messages/error.bash' \
-    '_src/args/dir_args.bash' \
-    '_src/args/flat_only_args.bash' \
-    '_src/modes/flat.bash' \
-    '_src/modes/deep.bash' \
-    '_src/utils/print.bash' \
-    '_src/main.bash' \
+    "_src/messages/error.bash" \
+    "_src/messages/help.bash" \
+    "_src/args/dir_args.bash" \
+    "_src/args/flat_only_args.bash" \
+    "_src/args/help_args.bash" \
+    "_src/modes/flat.bash" \
+    "_src/modes/deep.bash" \
+    "_src/utils/print.bash" \
+    "_src/main.bash" \
       >> `get_concat_file_location "$output_name"`
 }
 

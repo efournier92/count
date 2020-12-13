@@ -5,7 +5,7 @@
 # Description   : Unit test for deep-count mode
 #----------------
 
-source './_src/modes/deep.bash'
+source "./_src/modes/deep.bash"
 
 test_count_dirs_deep_with_empty_dir() {
   local message="It should count 0 dirs"

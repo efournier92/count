@@ -5,7 +5,7 @@
 # Description   : Unit test for flat-count mode
 #----------------
 
-source './_src/modes/flat.bash'
+source "./_src/modes/flat.bash"
 
 test_count_all_dirs_flat_with_no_dirs() {
   local message="It should count 0 directories"

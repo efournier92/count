@@ -5,8 +5,8 @@
 # Description   : Unit tests for passing arguments to count
 #----------------
 
-source './_src/args/dir_args.bash'
-source './_src/args/flat_only_args.bash'
+source "./_src/args/dir_args.bash"
+source "./_src/args/flat_only_args.bash"
 
 test_read_args_with_flat_short_arg() {
   local message="It should return the supplied directory"
