@@ -28,7 +28,7 @@ get_file_name() {
 get_concat_file_location() {
   local output_name="$1"
 
-  echo "`get_output_dir`/${output_name}_concat.bash"
+  echo "`get_output_dir`/${output_name}.bash"
 }
 
 get_binary_file_location() {
@@ -121,9 +121,8 @@ main() {
   delete_comments    "$output_name"
   delete_sources     "$output_name"
   add_shebang        "$output_name"
-  create_binary      "$output_name"  
-  cleanup_temp_files "$output_name"
-  printf "\nCompiled binary to `get_binary_file_location $output_name`\n"
+
+  printf "\nOutputted script file to `get_concat_file_location $output_name`\n"
 }
 
 main "$@"
